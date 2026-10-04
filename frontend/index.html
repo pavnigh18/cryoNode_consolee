@@ -1,0 +1,14 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CryoNode Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<header><div class="brand">CRYONODE <span>CONSOLE</span></div><nav>
+<button data-view="map">FLEET MAP</button><button data-view="twin">DIGITAL TWIN</button><button data-view="pipeline">PIPELINE</button><button data-view="planner">NETWORK PLANNER</button>
+</nav><div class="head-right"><select id="scenario"><option value="">SCENARIO</option><option value="ice_event">ICE EVENT</option><option value="sensor_fault">SENSOR FAULT</option><option value="battery_fade">BATTERY FADE</option><option value="storm">STORM</option></select><span id="clock"></span><span id="conn" class="dot off"></span><span id="connText">DISCONNECTED</span><button id="alertsBtn">ALERTS <b id="alertCount">0</b></button></div></header>
+<main id="app"></main>
+<aside id="drawer"><div class="drawer-head">ALERTS <button id="closeAlerts">×</button></div><div id="alerts"></div></aside>
+<script type="module" src="/static/app.js"></script>
+</body></html>

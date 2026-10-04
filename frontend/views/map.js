@@ -3,8 +3,8 @@ constructor(app){this.app=app;this.map=null;this.markers={};this.data={}}
 render(){
 this.app.innerHTML=`<section class="view active"><div class="layout"><div class="panel"><div class="section-head">FLEET / 25 SIMULATED + LIVE SLOT</div><div class="dense"><input id="search" placeholder="Search node" style="width:100%"></div><div id="buoyList" class="list"></div></div><div class="panel"><div id="map"></div></div></div></section>`;
 if(!this.map){this.map=L.map("map",{zoomControl:false}).setView([-60,0],3);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+maxZoom: 19,
+attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(this.map); // ya jo bhi map variable name wahan ho (e.g. map / this.map)
 fetch("/api/buoys").then(r=>r.json()).then(d=>d.forEach(x=>this.set(x)));document.querySelector("#search").oninput=e=>this.list(e.target.value)
 }

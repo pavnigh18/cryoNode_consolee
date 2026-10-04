@@ -12,14 +12,17 @@ export class MapView {
       this.map = L.map("map", { zoomControl: false }).setView([-68, 0], 3);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; OpenStreetMap'
       }).addTo(this.map);
     }
     fetch("/api/buoys")
       .then((r) => r.json())
       .then((d) => {
         d.forEach((x) => this.set(x));
-        document.querySelector("#search").oninput = (e) => this.list(e.target.value);
+        const searchInput = document.querySelector("#search");
+        if (searchInput) {
+          searchInput.oninput = (e) => this.list(e.target.value);
+        }
       });
   }
 
